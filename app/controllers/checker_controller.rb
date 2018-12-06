@@ -11,26 +11,34 @@ class CheckerController < ApplicationController
   end
 
   def upload_csv
+  	puts params.keys.inspect
+  	puts '---------------'
+    csv_file = params[:csv_file]
+    tmp_file = csv_file.tempfile
+    pub_path = Rails.root.join('public', 'uploads', csv_file.original_filename)
+    File.delete(pub_path) if File.exist?(pub_path)	
 
-
+	File.open(pub_path, 'wb') do |file|
+	  file.write(tmp_file.read)
+	end
+    out = ''
 	# puts 'bob'.metaphone
 
 	map = {}
 
-	CSV.foreach(InFile, :headers => true) do |row|
-	  puts 'row:' + row.inspect
-	  puts '1'
+	CSV.foreach(pub_path, :headers => true) do |row|
+	  out << 'row:' + row.inspect
 	  ky = row['first_name'].metaphone + row['last_name'].metaphone
-	  puts '2'
 	  map[ky] = map[ky] ? map[ky].push(row) : [row]  
-	  puts 'end of loop'
 	end
 
 	map.keys.each do |element|
 	  if map[element].length > 1
-	    puts 'dupes:' + map[element].inspect + "\n\n"
+	    out << 'dupes:' + map[element].inspect + "\n\n"
 	  end
 	end
+
+	render json: map.to_json
 
   end
 

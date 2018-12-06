@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   
   get '/checker/index', to: 'checker#index'
-
+  post '/checker/upload_csv', to: 'checker#upload_csv'
   root 'checker#index'
 
 end

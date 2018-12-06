@@ -1,5 +1,16 @@
 {
   "name": "dupe_addr_checker",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "@rails/webpacker": "https://github.com/rails/webpacker",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.21",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-on-rails": "11.1.8"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.1.10"
+  }
 }

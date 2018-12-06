@@ -64,9 +64,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'phonetic'
 
 # Bootstrap gems
-gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+
+gem "therubyracer", '0.12.3'
+gem "less-rails"  #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 
 gem 'react_on_rails', '11.1.4'
+gem 'webpacker', github: "rails/webpacker"
 
+# gem 'mini_racer', '0.2.0', platforms: :ruby
+# gem 'mini_racer', '0.1', platforms: :ruby

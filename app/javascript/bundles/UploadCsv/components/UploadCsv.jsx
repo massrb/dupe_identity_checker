@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import ReactDOM from 'react-dom'
+import DeDupeResult from './DeDupeResult';
 
 export default class UploadCsv extends React.Component {
 
@@ -32,6 +34,10 @@ export default class UploadCsv extends React.Component {
         success: function (data) {
             // your callback here
           console.log(data);
+          ReactDOM.render(
+          	React.createElement(DeDupeResult, { data: data }),
+            document.getElementById('main-container')
+          );
         },
         error: function (error) {
             // handle error

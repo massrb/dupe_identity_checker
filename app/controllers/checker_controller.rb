@@ -11,8 +11,6 @@ class CheckerController < ApplicationController
   end
 
   def upload_csv
-  	puts params.keys.inspect
-  	puts '---------------'
     csv_file = params[:csv_file]
     tmp_file = csv_file.tempfile
     pub_path = Rails.root.join('public', 'uploads', csv_file.original_filename)
@@ -25,20 +23,31 @@ class CheckerController < ApplicationController
 	# puts 'bob'.metaphone
 
 	map = {}
+	result = {uniq: [], dup: []}
 
 	CSV.foreach(pub_path, :headers => true) do |row|
-	  out << 'row:' + row.inspect
 	  ky = row['first_name'].metaphone + row['last_name'].metaphone
-	  map[ky] = map[ky] ? map[ky].push(row) : [row]  
+	  row_el = {} 
+	  row.headers.each{|fld| row_el[fld] = row[fld]}
+	  puts row_el.inspect
+	  map[ky] = map[ky] ? map[ky].push(row_el) : [row_el]  
 	end
 
 	map.keys.each do |element|
 	  if map[element].length > 1
+	  	result[:dup] << map[element]
 	    out << 'dupes:' + map[element].inspect + "\n\n"
+	  else
+	    result[:uniq] << map[element][0]    
 	  end
 	end
 
-	render json: map.to_json
+    out << "UNIQUE:\n\n" + result[:uniq].join("\n\n")
+    out << "\n\n=============================\n\n"
+    out << "DUPLICATES:\n\n" + result[:dup].join("\n\n")
+    # puts out
+
+	render json: result.to_json
 
   end
 

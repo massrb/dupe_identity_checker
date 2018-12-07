@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/massrb/id_checker.git
+  revision: 05f5e579a46eb0b18e9493fdb70df8d76a10833f
+  specs:
+    id_checker (0.1.3)
+      phonetic (~> 1)
+
+GIT
   remote: https://github.com/rails/webpacker.git
   revision: 99c0dd9a1e5fa9ca9ad840d7e308c12c4e8eb9ec
   specs:
@@ -241,6 +248,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  id_checker (= 0.1.3)!
   jbuilder (~> 2.5)
   jquery-rails
   less-rails

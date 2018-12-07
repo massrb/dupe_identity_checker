@@ -19,9 +19,13 @@ class CheckerController < ApplicationController
 	File.open(pub_path, 'wb') do |file|
 	  file.write(tmp_file.read)
 	end
-    out = ''
+
+    result = IdChecker::FileReader.read(pub_path)
+
+    # out = ''
 	# puts 'bob'.metaphone
 
+=begin	
 	map = {}
 	result = {uniq: [], dup: []}
 
@@ -46,8 +50,9 @@ class CheckerController < ApplicationController
     out << "\n\n=============================\n\n"
     out << "DUPLICATES:\n\n" + result[:dup].join("\n\n")
     # puts out
+=end
 
-	render json: result.to_json
+	render json: result.data.to_json
 
   end
 

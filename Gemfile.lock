@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/massrb/id_checker.git
-  revision: 05f5e579a46eb0b18e9493fdb70df8d76a10833f
+  revision: ea6f032842e301495a5f1c5dd52288bfbdf1b9e4
   specs:
-    id_checker (0.1.3)
+    id_checker (0.1.4)
       phonetic (~> 1)
 
 GIT
@@ -248,7 +248,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
-  id_checker (= 0.1.3)!
+  id_checker (= 0.1.4)!
   jbuilder (~> 2.5)
   jquery-rails
   less-rails

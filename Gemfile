@@ -74,6 +74,6 @@ gem 'webpacker', github: "rails/webpacker"
 
 gem 'jquery-rails'
 
-gem 'id_checker', '0.1.3', git: 'https://github.com/massrb/id_checker.git'
+gem 'id_checker', '0.1.4', git: 'https://github.com/massrb/id_checker.git'
 
 # gem 'mini_racer', '0.1', platforms: :ruby

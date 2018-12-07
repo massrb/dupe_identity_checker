@@ -1,4 +1,5 @@
 
+
 class CheckerController < ApplicationController
   
   def index
@@ -15,8 +16,8 @@ class CheckerController < ApplicationController
 	  file.write(tmp_file.read)
 	end
 
-    result = IdChecker::FileReader.read(pub_path)
-    puts result.out
+  result = IdChecker::FileReader.read(pub_path)
+  puts result.out
 
 	render json: result.data.to_json
 

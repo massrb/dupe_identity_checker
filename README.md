@@ -22,3 +22,10 @@ build packages and gems
 bundle install
 yarn install
 ```
+
+run server
+```
+rails server
+```
+
+navigate browser to http://localhost:3000

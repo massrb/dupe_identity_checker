@@ -8,7 +8,6 @@ export default class UploadCsv extends React.Component {
   constructor(props) {
   	console.log('upload csv ctor');
     super(props);
-    this.componentDidMount = this.componentDidMount.bind(this);
     this.showDialog = this.showDialog.bind(this);
     this.uploadFile = this.uploadFile.bind(this);
     // How to set initial state in ES6 class syntax
@@ -40,7 +39,7 @@ export default class UploadCsv extends React.Component {
           );
         },
         error: function (error) {
-            // handle error
+          alert('Upload failed');
         },
         async: true,
         data: data,
@@ -55,11 +54,6 @@ export default class UploadCsv extends React.Component {
     }
   }
 
-  componentDidMount() {
-  	//var el = $($('.csv-upload-element').parent()); 
-    //el.css('display','inline-block');
-    //el.css('padding-top', '15px');
-  }
 
   render() {
   	if(this.state.show_link) {

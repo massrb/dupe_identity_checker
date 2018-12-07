@@ -1,8 +1,3 @@
-require 'phonetic'
-require 'csv'
-
-InFile = '/mnt/shared/validity/normal.csv'
-
 
 class CheckerController < ApplicationController
   
@@ -21,36 +16,7 @@ class CheckerController < ApplicationController
 	end
 
     result = IdChecker::FileReader.read(pub_path)
-
-    # out = ''
-	# puts 'bob'.metaphone
-
-=begin	
-	map = {}
-	result = {uniq: [], dup: []}
-
-	CSV.foreach(pub_path, :headers => true) do |row|
-	  ky = row['first_name'].metaphone + row['last_name'].metaphone
-	  row_el = {} 
-	  row.headers.each{|fld| row_el[fld] = row[fld]}
-	  puts row_el.inspect
-	  map[ky] = map[ky] ? map[ky].push(row_el) : [row_el]  
-	end
-
-	map.keys.each do |element|
-	  if map[element].length > 1
-	  	result[:dup] << map[element]
-	    out << 'dupes:' + map[element].inspect + "\n\n"
-	  else
-	    result[:uniq] << map[element][0]    
-	  end
-	end
-
-    out << "UNIQUE:\n\n" + result[:uniq].join("\n\n")
-    out << "\n\n=============================\n\n"
-    out << "DUPLICATES:\n\n" + result[:dup].join("\n\n")
-    # puts out
-=end
+    puts result.out
 
 	render json: result.data.to_json
 

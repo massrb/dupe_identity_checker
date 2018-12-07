@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Duplicate Identiy Checker (Rails and React)
 
-Things you may want to cover:
+You may need node. To install with nvm.
+Install nvm & node
+```
+curl-o-https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 
-* Ruby version
+nvm install node               
+nvm alias default node          
+```
 
-* System dependencies
+install yarn
+```
+brew install yarn   
+```
 
-* Configuration
+build packages and gems
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bundle install
+yarn install
+```
